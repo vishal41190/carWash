@@ -1,0 +1,22 @@
+<div class="col-sm-12 col-lg-12">
+  <div class="row">
+    <div class="panel panel-default">
+      <div class="panel-body no-scroll">
+        <div class="col-sm-12">
+          <accordion>
+            <accordion-group #group *ngFor="let vehicle of vehicles">
+              <div accordion-heading>
+               Licence Plate - {{vehicle.licencePlate}} ({{vehicle.type}})
+                <i class="pull-right float-xs-right glyphicon"
+                   [ngClass]="{'glyphicon-chevron-down': group?.isOpen, 'glyphicon-chevron-right': !group?.isOpen}"></i>
+              </div>
+              <ul class="list-group">
+                <a (click)="viewOrderDetails(order)" class="list-group-item list-group-item" [ngClass]="{'active': selectedOrder.timeStamp == order.timeStamp}" *ngFor="let order of vehicle.orders">{{order.timeStamp | date:'medium'}}</a>
+              </ul>
+            </accordion-group>
+          </accordion>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

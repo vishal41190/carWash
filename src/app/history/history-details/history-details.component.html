@@ -1,0 +1,21 @@
+<div class="col-sm-12 col-lg-12">
+  <div class="row">
+    <div class="panel panel-default">
+      <div class="panel-heading text-center"><h3>ORDER</h3></div>
+      <div class="panel-body order-body">
+        <div class="col-sm-12 my-4" *ngFor="let item of selectedOrder.items">
+          <div class="col-sm-10">{{item.title}}</div><div class="col-sm-2">${{item.charge}}</div>
+        </div>
+        <div class="col-sm-12 my-4">
+          <div class="col-sm-10 text-right"><b>Total</b></div><div class="col-sm-2">${{selectedOrder.total}}</div>
+        </div>
+        <div class="col-sm-12 my-4">
+          <div class="col-sm-10 text-right"><b>Discount</b></div><div class="col-sm-2"><b>${{selectedOrder.discount*selectedOrder.total*0.01 || 0}}</b></div>
+        </div>
+        <div class="col-sm-12 my-4">
+          <div class="col-sm-10 text-right"><b>Charge</b></div><div class="col-sm-2"><b>${{selectedOrder.totalCharge}}</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

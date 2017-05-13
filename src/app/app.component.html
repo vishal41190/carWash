@@ -1,0 +1,13 @@
+<div class="page-header text-center">
+  <div class='btn-toolbar pull-right right-button'>
+    <div class='btn-group'>
+      <button type='button' *ngIf="rootPage == 'home'" (click)="showHistory()" class='btn btn-default'><fa name="history"></fa>History</button>
+      <button type='button' *ngIf="rootPage == 'history'" (click)="showHome()" class='btn btn-default'><fa name="plus"></fa>New Order</button>
+    </div>
+  </div>
+  <div class="title text-center"><h1>Car Wash</h1></div>
+</div>
+<div class="col-md-12">
+  <app-home *ngIf="rootPage == 'home'"></app-home>
+  <app-history *ngIf="rootPage == 'history'"></app-history>
+</div>

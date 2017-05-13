@@ -1,0 +1,66 @@
+<div class="col-sm-12 col-lg-12">
+  <div class="row new-wash-wrapper">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="col-md-12 input-group">
+          <h4>Enter Licence Plate</h4>
+        </div>
+        <div class="col-md-12 input-group">
+          <div class="col-md-4 col-md-offset-4 input-group">
+            <input type="text" [(ngModel)]="currentVehicle.licencePlate" class="form-control" placeholder="Licence Plate" aria-describedby="Licence Plate" required>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="col-md-12 input-group">
+          <h4>Select vehicle type</h4>
+        </div>
+        <div class="col-md-12 input-group">
+          <div class="col-md-2  input-group vehicle-button">
+            <button type="button" class="btn btn-default btn-lg" (click)="setVehicleType('car');" [ngClass]="{'active': currentVehicle.type=='car'}"  data-toggle="button"><fa name="car"></fa>CAR <span class="vehicle-price">$5</span></button>
+          </div>
+          <div class="col-md-2  input-group vehicle-button">
+            <button type="button" class="btn btn-default btn-lg" (click)="setVehicleType('truck');" [ngClass]="{'active': currentVehicle.type=='truck'}"  data-toggle="button"><fa name="truck"></fa>TRUCK<span class="vehicle-price">$10</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-sm-12">
+      <div class="panel panel-default" *ngIf="currentVehicle.type == 'truck'">
+        <div class="panel-body">
+          <div class="col-md-12 input-group">
+            <h4>Does it has a mud in a bed?</h4>
+          </div>
+          <div class="col-md-12 input-group">
+            <div class="col-md-2  input-group vehicle-button">
+              <button type="button" class="btn btn-default btn-lg" (click)="setHasMud(true);"  [ngClass]="{'active': currentVehicle.hasMud}"  data-toggle="button">YES<span class="vehicle-price">+$2</span></button>
+            </div>
+            <div class="col-md-2  input-group vehicle-button">
+              <button type="button" class="btn btn-default btn-lg"  (click)="setHasMud(false);" [ngClass]="{'active': !currentVehicle.hasMud}" data-toggle="button">NO<span class="vehicle-price">+$0</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+   <div class="col-md-6 col-sm-12">
+     <div class="panel panel-default"  *ngIf="currentVehicle.type == 'truck'">
+       <div class="panel-body">
+         <div class="col-md-12 input-group">
+           <h4>Does it has a bed let down?</h4>
+         </div>
+         <div class="col-md-12 input-group">
+           <div class="col-md-2  input-group vehicle-button">
+             <button type="button" class="btn btn-default btn-lg" (click)="setBedDown(true);"  [ngClass]="{'active': currentVehicle.bedDown}"  data-toggle="button">YES</button>
+           </div>
+           <div class="col-md-2 input-group vehicle-button">
+             <button type="button" class="btn btn-default btn-lg" (click)="setBedDown(false);" [ngClass]="{'active': !currentVehicle.bedDown}" data-toggle="button">NO</button>
+           </div>
+         </div>
+       </div>
+   </div>
+
+    </div>
+  </div>
+</div>
